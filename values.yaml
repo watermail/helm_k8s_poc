@@ -5,7 +5,7 @@ image:
   tag: V_127
   pullPolicy: IfNotPresent
 
-command: ["bundle", "exec", "sidekiq"]
+command: ["bundle", "exec", "rails", "s", "-b", "0.0.0.0", "-p", "3000"]
 args: []
 
 env:
@@ -29,4 +29,19 @@ database:
 redisUrl: cmVkaXM6Ly9yZWRpczo2Mzc5
 
 secret_key_base: Ym9obml0ZWNo
-~
+
+service:
+  port: 80
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: bowchat.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
