@@ -5,7 +5,7 @@ image:
   tag: V_127
   pullPolicy: IfNotPresent
 
-command: []
+command: ["bundle", "exec", "sidekiq"]
 args: []
 
 env:
@@ -27,3 +27,6 @@ database:
   user: cG9zdGdyZXM=
 
 redisUrl: cmVkaXM6Ly9yZWRpczo2Mzc5
+
+secret_key_base: Ym9obml0ZWNo
+~

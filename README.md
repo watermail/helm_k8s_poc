@@ -13,3 +13,18 @@ helm upgrade prod-bowchat-worker ./prod-bowchat-worker -n prod-bowchat
 helm upgrade prod-bowchat-worker ./prod-bowchat-worker \
   --set replicaCount=3 \
   -n prod-bowchat
+
+
+#For getting pods
+
+debasmita13@DESKTOP-2HHQS11:~/helm_k8s_poc$ kubectl get pods -n prod-bowchat
+
+
+#For deployment
+
+debasmita13@DESKTOP-2HHQS11:~/helm_k8s_poc$ helm upgrade prod-bowchat-worker . -n prod-bowchat
+
+
+#For delete
+
+kubectl delete deployment prod-bowchat-worker-worker -n prod-bowchat
