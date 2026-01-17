@@ -21,14 +21,16 @@ tolerations: []
 affinity: {}
 
 database:
-  host: MzQuNDcuMjAzLjIwNg==
-  name: Ym93X2NoYXRfc3RhZ2U=
-  password: c2RmOGo5N1l5aXQ2
-  user: cG9zdGdyZXM=
+  host: "34.47.203.206"
+  name: "bow_chat_stage"
+  # IMPORTANT: For production, override this value using --set or a secrets management tool.
+  password: "sdf8j97Yyit6"
+  user: "postgres"
 
-redisUrl: cmVkaXM6Ly9yZWRpczo2Mzc5
+redisUrl: "redis://redis:6379"
 
-secret_key_base: Ym9obml0ZWNo
+# IMPORTANT: For production, override this value using --set or a secrets management tool.
+secret_key_base: "bohnitech"
 
 service:
   port: 80
