@@ -1,6 +1,5 @@
 replicaCount: 1
 
-
 image:
   repository: asia-south1-docker.pkg.dev/authentic-genre-444610-p2/prod-bow-chat/prod-bow-chat
   tag: V_127
@@ -13,7 +12,7 @@ env:
   RAILS_ENV: production
   WORKER: "true"
 
-existingSecret: prod-bowchat-env
+existingSecret: ""
 
 resources: {}
 
@@ -28,4 +27,3 @@ database:
   user: cG9zdGdyZXM=
 
 redisUrl: cmVkaXM6Ly9yZWRpczo2Mzc5
-

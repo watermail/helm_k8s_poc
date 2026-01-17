@@ -37,7 +37,7 @@ spec:
 
           envFrom:
             - secretRef:
-                name: {{ .Values.existingSecret }}
+                name: {{ .Values.existingSecret | default (printf "%s-secret" (include "worker.fullname" .)) }}
 
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
