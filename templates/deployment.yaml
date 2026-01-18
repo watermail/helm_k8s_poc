@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "worker.fullname" . }}
+  name: {{ .Release.Name }}
   labels:
-    app: {{ include "worker.name" . }}
+    app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "worker.name" . }}
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ include "worker.name" . }}
+        app: {{ .Release.Name }}
     spec:
       containers:
         - name: worker
@@ -37,7 +37,7 @@ spec:
 
           envFrom:
             - secretRef:
-                name: {{ .Values.existingSecret | default (printf "%s-secret" (include "worker.fullname" .)) }}
+                name: {{ .Values.existingSecret | default (printf "%s-secret" .Release.Name) }}
 
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
